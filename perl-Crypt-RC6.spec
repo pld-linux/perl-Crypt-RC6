@@ -5,12 +5,12 @@ Summary:	Crypt::RC6 Perl module - RC6 block cipher encryption
 Summary(pl):	Modu³ Perla Crypt::RC6 - szyfr blokowy RC6
 Name:		perl-Crypt-RC6
 Version:	1.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 BuildRequires:	perl-devel >= 5.6
-BuildRequires:	rpm-perlprov >= 3.0.3-16
+BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -32,7 +32,8 @@ Wykonywane jest dwadzie¶cia kroków.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-%{__perl} Makefile.PL
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor 
 %{__make} OPTIMIZE="%{rpmcflags}"
 %{__make} test
 
@@ -48,8 +49,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc CHANGES README
-%{perl_sitearch}/Crypt/RC6.pm
-%dir %{perl_sitearch}/auto/Crypt/RC6
-%{perl_sitearch}/auto/Crypt/RC6/*.bs
-%attr(755,root,root) %{perl_sitearch}/auto/Crypt/RC6/*.so
+%{perl_vendorarch}/Crypt/RC6.pm
+%dir %{perl_vendorarch}/auto/Crypt/RC6
+%{perl_vendorarch}/auto/Crypt/RC6/*.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Crypt/RC6/*.so
 %{_mandir}/man3/*
