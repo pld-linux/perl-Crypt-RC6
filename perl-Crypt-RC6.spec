@@ -5,12 +5,12 @@ Summary:	Crypt::RC6 Perl module - RC6 block cipher encryption
 Summary(pl):	Modu³ Perla Crypt::RC6 - szyfr blokowy RC6
 Name:		perl-Crypt-RC6
 Version:	1.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 BuildRequires:	perl-devel >= 5.6
-BuildRequires:	rpm-perlprov >= 3.0.3-16
+BuildRequires:	rpm-perlprov >= 4.0.2-104
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
