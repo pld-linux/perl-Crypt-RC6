@@ -3,8 +3,8 @@
 %bcond_without	tests	# do not perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
-%define	pdir	Crypt
-%define	pnam	RC6
+%define		pdir	Crypt
+%define		pnam	RC6
 Summary:	Crypt::RC6 Perl module - RC6 block cipher encryption
 Summary(pl):	Modu³ Perla Crypt::RC6 - szyfr blokowy RC6
 Name:		perl-Crypt-RC6
