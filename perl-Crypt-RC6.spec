@@ -34,7 +34,7 @@ Wykonywane jest dwadzie¶cia kroków.
 
 %build
 %{__perl} Makefile.PL \
-	INSTALLDIRS=vendor 
+	INSTALLDIRS=vendor
 %{__make} OPTIMIZE="%{rpmcflags}"
 %{__make} test
 
