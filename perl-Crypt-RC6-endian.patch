@@ -1,0 +1,86 @@
+--- Crypt-RC6-1.0/_rc6.c.orig	2002-03-16 22:54:10.000000000 +0000
++++ Crypt-RC6-1.0/_rc6.c	2004-05-09 00:14:37.000000000 +0000
+@@ -5,6 +5,14 @@
+ 
+ #include "platform.h"
+ 
++#include <endian.h>
++#if __BYTE_ORDER == __BIG_ENDIAN
++#  include <byteswap.h>
++#  define regswp(x) bswap_32(x)
++#else
++#  define regswp(x) x
++#endif
++
+ /*
+     function: rc6_generateKeySchedule
+ 
+@@ -27,6 +35,8 @@
+     /* Move the bytes of initKey into L, little-endian fashion. */
+ 
+     memcpy(bPtr, initKey, keyLength);
++    for(i=0; i<8; i++)
++	    L[i] = regswp(L[i]);
+ 
+     /* Set S[0] to the constant P32, then generate the rest of S. */
+ 
+@@ -61,10 +71,10 @@
+ 
+     regPtr = (unsigned char*)&regs[0];
+     memcpy(regPtr, input, 16);
+-    A = regs[0]; /* Cook up A, B, C, and D as our four 32-bit registers. */
+-    B = regs[1];
+-    C = regs[2];
+-    D = regs[3];
++    A = regswp(regs[0]); /* Cook up A, B, C, and D as our four 32-bit registers. */
++    B = regswp(regs[1]);
++    C = regswp(regs[2]);
++    D = regswp(regs[3]);
+ 	B += S[0];
+ 	D += S[1];
+ 	for (j = 1; j <= 20; j++)  /* Perform 20 rounds. */
+@@ -81,10 +91,10 @@
+     }
+ 	A += S[42];
+ 	C += S[43];
+-    regs[0] = A;
+-    regs[1] = B;
+-    regs[2] = C;
+-    regs[3] = D;
++    regs[0] = regswp(A);
++    regs[1] = regswp(B);
++    regs[2] = regswp(C);
++    regs[3] = regswp(D);
+     memcpy(output, regPtr, 16);
+ }
+ 
+@@ -104,10 +114,10 @@
+ 
+     regPtr = (unsigned char*)&regs[0];
+     memcpy(regPtr, input, 16);
+-    A = regs[0];
+-    B = regs[1];
+-    C = regs[2];
+-    D = regs[3];
++    A = regswp(regs[0]);
++    B = regswp(regs[1]);
++    C = regswp(regs[2]);
++    D = regswp(regs[3]);
+ 	C -= S[43];
+ 	A -= S[42];
+ 	for (j = 20; j >= 1; j--)
+@@ -126,10 +136,10 @@
+ 	}
+ 	D -= S[1];
+ 	B -= S[0];
+-    regs[0] = A;
+-    regs[1] = B;
+-    regs[2] = C;
+-    regs[3] = D;
++    regs[0] = regswp(A);
++    regs[1] = regswp(B);
++    regs[2] = regswp(C);
++    regs[3] = regswp(D);
+     memcpy(output, regPtr, 16);
+ }
+ 
