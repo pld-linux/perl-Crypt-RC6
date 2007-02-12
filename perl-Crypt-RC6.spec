@@ -6,7 +6,7 @@
 %define		pdir	Crypt
 %define		pnam	RC6
 Summary:	Crypt::RC6 Perl module - RC6 block cipher encryption
-Summary(pl):	Modu≥ Perla Crypt::RC6 - szyfr blokowy RC6
+Summary(pl.UTF-8):   Modu≈Ç Perla Crypt::RC6 - szyfr blokowy RC6
 Name:		perl-Crypt-RC6
 Version:	1.0
 Release:	4
@@ -26,13 +26,13 @@ the Advanced Encryption Standard (AES). This implementation requires
 the use of a 16-, 24-, or 32-byte key and 16-byte blocks for
 encryption/decryption. Twenty rounds are performed.
 
-%description -l pl
-Modu≥ jest zgodn± z Crypt::CBC implementacj± szyfru blokowego RC6. RC6
+%description -l pl.UTF-8
+Modu≈Ç jest zgodnƒÖ z Crypt::CBC implementacjƒÖ szyfru blokowego RC6. RC6
 jest ewolucyjnym rozszerzeniem RC5, opracowanym na potrzeby AES
 (Advanced Security Standard - standardu zaawansowanego
-bezpieczeÒstwa). Ta implementacja wymaga uøycia 16, 24, lub
-32-bajtowego klucza i 16-bajtowych blokÛw do kodowania i dekodowania.
-Wykonywane jest dwadzie∂cia krokÛw.
+bezpiecze≈Ñstwa). Ta implementacja wymaga u≈ºycia 16, 24, lub
+32-bajtowego klucza i 16-bajtowych blok√≥w do kodowania i dekodowania.
+Wykonywane jest dwadzie≈õcia krok√≥w.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
