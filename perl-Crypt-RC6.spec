@@ -9,7 +9,7 @@ Summary:	Crypt::RC6 Perl module - RC6 block cipher encryption
 Summary(pl.UTF-8):	Moduł Perla Crypt::RC6 - szyfr blokowy RC6
 Name:		perl-Crypt-RC6
 Version:	1.0
-Release:	6
+Release:	7
 License:	GPL v2
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Crypt/%{pdir}-%{pnam}-%{version}.tar.gz
