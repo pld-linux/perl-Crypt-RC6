@@ -62,6 +62,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc CHANGES README
 %{perl_vendorarch}/Crypt/RC6.pm
 %dir %{perl_vendorarch}/auto/Crypt/RC6
-%{perl_vendorarch}/auto/Crypt/RC6/*.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Crypt/RC6/*.so
 %{_mandir}/man3/*
