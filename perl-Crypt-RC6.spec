@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_without	tests	# do not perform "make test"
 #
-%include	/usr/lib/rpm/macros.perl
 %define		pdir	Crypt
 %define		pnam	RC6
 Summary:	Crypt::RC6 Perl module - RC6 block cipher encryption
